@@ -9,6 +9,15 @@
 <body>
     <p>Hello there!</p>
     <p>General Kenobi!</p>
+    {% for post in posts %}
+        <article>
+            <time> published: {{post.published_date}}</time>
+            <h2><a href="">{{post.title}}</a></h2>
+            <p> {{post.text|linebreaksbr}}</p>
+        </article>
+        {{post}}
+    {% endfor %}
+
     <h1><a href="">Django Tutorial Blog</a></h1>
     <article>
         <time> published: 11/18/2022, 12:45</time>
