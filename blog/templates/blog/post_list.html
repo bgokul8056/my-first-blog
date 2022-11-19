@@ -1,35 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokul's Blog</title>
-</head>
-<body>
-    <p>Hello there!</p>
-    <p>General Kenobi!</p>
+{% extends 'blog/base.html' %}
+{% block content %}
     {% for post in posts %}
         <article>
-            <time> published: {{post.published_date}}</time>
-            <h2><a href="">{{post.title}}</a></h2>
+            <time> published: {{post.created_date}}</time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
             <p> {{post.text|linebreaksbr}}</p>
         </article>
-        {{post}}
+        <hr>
     {% endfor %}
-
-    <h1><a href="">Django Tutorial Blog</a></h1>
-    <article>
-        <time> published: 11/18/2022, 12:45</time>
-        <h2><a href="">Monkey King Post</a></h2>
-        <p> This is my post about the dota hero Monkey King, or as he's known more popularly, Sun Wukong.</p>
-    </article>
-        <time> published: 11/18/2022, 1:00</time>
-        <h2><a href="">UrsaPost</a></h2>
-        <p> This is my post about the dota hero Ursa, or as he's known more popularly, Ulfsaar.</p>
-    <article>
-
-    </article>
-
-</body>
-</html>
+{% endblock %}
